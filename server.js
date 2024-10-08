@@ -4,7 +4,15 @@ const app = express();
 const cors = require("cors");
 
 app.use(express.json());
-app.use(cors());
+
+// CORS configuration to allow requests from the frontend URL
+const corsOptions = {
+  origin: "https://chat-todo.netlify.app",
+  methods: ["GET", "POST", "PUT", "DELETE"], // Specify the allowed methods
+  credentials: true, // Allow credentials if needed
+};
+
+app.use(cors(corsOptions));
 
 // Connect to MongoDB Atlas
 mongoose
@@ -102,4 +110,3 @@ const port = 4000; // Change to any unused port number
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-//hello
