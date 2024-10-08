@@ -4,7 +4,13 @@ const app = express();
 const cors = require("cors");
 
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: "https://chat-math.netlify.app", // Replace with your frontend link
+  methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed methods
+  credentials: true, // If you want to allow cookies or other credentials
+};
+
+app.use(cors(corsOptions));
 
 // Connect to MongoDB Atlas
 mongoose
