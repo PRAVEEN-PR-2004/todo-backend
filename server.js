@@ -4,12 +4,7 @@ const app = express();
 const cors = require("cors");
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://todo-frontend-2-88n8.onrender.com", // Replace with your frontend URL
-    methods: "GET,POST,PUT,DELETE",
-  })
-);
+app.use(cors());
 
 // Connect to MongoDB Atlas
 mongoose
